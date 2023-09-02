@@ -77,7 +77,7 @@ class Player(Entity):
 
             self.y += movementY * 50 * time.dt
 
-        movement = 10 if y_ray.distance < 5 else 5
+        movement = 10 if y_ray.distance < 4 else 5
 
         if held_keys["w"]:
             self.velocity_z += movement * time.dt
@@ -97,7 +97,7 @@ class Player(Entity):
             self.velocity_x = lerp(self.velocity_x, 0 if y_ray.distance < 4 else -1, time.dt * 3)
 
         # Movement
-        if y_ray.distance <= 5:
+        if y_ray.distance <= 4:
             self.movementX = (self.forward[0] * self.velocity_z + 
                 self.left[0] * self.velocity_x + 
                 self.back[0] * -self.velocity_z + 
